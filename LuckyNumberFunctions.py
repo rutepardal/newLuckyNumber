@@ -12,23 +12,22 @@ from math import sqrt
 
 
 def create_newNr (oldNr):
-    """oldNr: Old Lucky Number
-    makes math calculation to create new lucky number
-    returns the new number
+    """
+    oldNr: Old Lucky Number
+    makes math calculation to create new lucky Number
+    --------
+    Returns: the new Lucky Number
     """
     newNr = int(oldNr-sqrt(oldNr)+oldNr/2)
     return (newNr)
 
 def buildMessage (newNr, username):
     """   
-    Parameters
-    ----------
     newNr : new lucky number.
     username : name given by user
-
+    ----------
     Returns
-    -------
-    message : message to politely inform the user of the new lucky number
+    message : message to inform the user of the new lucky number
 
     """
     message = f"{username}, your new Lucky Number is {newNr}!"
@@ -37,16 +36,15 @@ def buildMessage (newNr, username):
 
 def check_oldNr (oldNrUser):
     """
-    Parameters
-    ----------
-    oldNr : old Lucky Number given by user
+    oldNrUser : old Lucky Number given by user
+    ---------
     Returns
-    -------
     oldNr : corrected Lucky Number
-
     """
     try:
-       oldNr = int(oldNrUser) 
+        oldNr = int(oldNrUser)
+        return oldNr
     except ValueError:
-        oldNr = int(input("Not a number! Type your actual Lucky Number please: "))
-    return oldNr
+        oldNrattempt = input("Not a number! Type your current Lucky Number please: ")
+        return check_oldNr(oldNrattempt)
+        
